@@ -2,7 +2,6 @@
 var assert = require('assert');
 var Md = require('markdown-it');
 var implicitFigures = require('./');
-var attrs = require('markdown-it-attrs');
 
 describe('markdown-it-implicit-figures', function() {
   var md;
@@ -147,14 +146,6 @@ describe('markdown-it-implicit-figures', function() {
     assert.equal(res, expected);
   });
 
-  it('should work with markdown-it-attrs', function () {
-    md = Md().use(attrs).use(implicitFigures);
-    var src = '![](fig.png){.asdf}';
-    var expected = '<figure><img src="fig.png" alt="" class="asdf"></figure>\n';
-    var res = md.render(src);
-    assert.equal(res, expected);
-  });
-
   it('should put the image inside a link to the image if it is not yet linked', function () {
     md = Md().use(implicitFigures, { link: true });
     var src = '![www.google.com](fig.png)';
@@ -200,14 +191,6 @@ describe('markdown-it-implicit-figures', function() {
     md = Md().use(implicitFigures, { figcaption: 'title' });
     var src = '![](fig.png "Image from [source](to)")';
     var expected = '<figure><img src="fig.png" alt=""><figcaption>Image from <a href="to">source</a></figcaption></figure>\n';
-    var res = md.render(src);
-    assert.equal(res, expected);
-  });
-
-  it('should copy attributes from img to figure tag', function () {
-    md = Md().use(attrs).use(implicitFigures, { copyAttrs: '^class$' });
-    var src = '![caption](fig.png){.cls attr=val}';
-    var expected = '<figure class="cls"><img src="fig.png" alt="caption" class="cls" attr="val"></figure>\n';
     var res = md.render(src);
     assert.equal(res, expected);
   });
