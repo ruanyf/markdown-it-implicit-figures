@@ -1,14 +1,13 @@
 {
-  "name": "markdown-it-implicit-figures",
-  "version": "0.12.0",
+  "name": "@ruanyf/markdown-it-implicit-figures",
+  "version": "1.0.0",
   "description": "Render images occurring by itself in a paragraph as `<figure><img ...></figure>`, similar to pandoc's implicit_figures",
   "license": "MIT",
-  "repository": "ruanyf/markdown-it-implicit-figures",
-  "author": {
-    "name": "Ruan Yifeng",
-    "email": "yifeng.ruan@gmail.com",
-    "url": "github.com/ruanyf"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ruanyf/markdown-it-implicit-figures.git"
   },
+  "author": "Ruan Yifeng <yifeng.ruan@gmail.com> (github.com/ruanyf)",
   "engines": {
     "node": ">=0.10.0"
   },
@@ -41,5 +40,8 @@
     "mocha": "10.x",
     "rollup": "4.x"
   },
-  "tonicExampleFilename": "demo.js"
+  "tonicExampleFilename": "demo.js",
+  "bugs": {
+    "url": "https://github.com/ruanyf/markdown-it-implicit-figures/issues"
+  }
 }
