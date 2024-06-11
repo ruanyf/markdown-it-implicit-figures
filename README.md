@@ -26,7 +26,7 @@ Output:
 ## Install
 
 ```
-$ npm install --save markdown-it-implicit-figures
+$ npm install --save @ruanyf/markdown-it-implicit-figures
 ```
 
 ## Usage
@@ -116,7 +116,6 @@ console.log(res);
 - `link`: Put a link around the image if there is none yet.
 - `copyAttrs`: Copy attributes matching (RegExp or string) `copyAttrs` to `figure` element.
 
-
 ## License
 
-MIT © [Arve Seljebu](http://arve0.github.io/)
+MIT 
