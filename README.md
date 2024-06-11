@@ -58,7 +58,7 @@ Or load it in CommonJS module.
 
 ```javascript
 const md = require('markdown-it')();
-const implicitFigures = require('markdown-it-implicit-figures');
+const implicitFigures = require('@ruanyf/markdown-it-implicit-figures');
 
 md.use(implicitFigures, {
   dataType: false,  // <figure data-type="image">, default: false
