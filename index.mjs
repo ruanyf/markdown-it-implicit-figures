@@ -136,6 +136,7 @@ function implicitFiguresPlugin(md, options) {
     }
   }
   md.core.ruler.before('linkify', 'implicit_figures', implicitFigures);
-}
+};
 
-module.exports = implicitFiguresPlugin;
+export default implicitFiguresPlugin;
+

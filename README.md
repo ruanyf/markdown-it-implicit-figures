@@ -1,4 +1,6 @@
-# markdown-it-implicit-figures [![Build Status](https://github.com/arve0/markdown-it-implicit-figures/actions/workflows/test.yml/badge.svg)](https://github.com/arve0/markdown-it-implicit-figures/actions/workflows/test.yml) [![npm version](https://badge.fury.io/js/markdown-it-implicit-figures.svg)](http://badge.fury.io/js/markdown-it-implicit-figures)
+This repo is forked from [@arve0/markdown-it-implicit-figures](https://github.com/arve0/markdown-it-implicit-figures), adding ESM support.
+
+## @ruanyf/markdown-it-implicit-figures
 
 Render images occurring by itself in a paragraph as `<figure><img ...></figure>`, similar to [pandoc's implicit figures](http://pandoc.org/README.html#images).
 
@@ -21,17 +23,40 @@ Output:
 <figure><a href="page.html"><img src="fig.png" alt=""></a></figure>
 ```
 
-
 ## Install
 
 ```
 $ npm install --save markdown-it-implicit-figures
 ```
 
-
 ## Usage
 
-```js
+Load it in ES module.
+
+```javascript
+import markdownit from 'markdown-it';
+import implicitFigures from '@ruanyf/markdown-it-implicit-figures';
+
+const md = markdownit();
+
+md.use(implicitFigures, {
+  dataType: false,  // <figure data-type="image">, default: false
+  figcaption: false,  // <figcaption>alternative text</figcaption>, default: false
+  keepAlt: false // <img alt="alt text" .../><figcaption>alt text</figcaption>, default: false
+  lazyLoading: false, // <img loading="lazy" ...>, default: false
+  link: false // <a href="img.png"><img src="img.png"></a>, default: false
+  tabindex: false, // <figure tabindex="1+n">..., default: false
+});
+
+const src = 'text with ![](img.png)\n\n![](fig.png)\n\nanother paragraph';
+const res = md.render(src);
+
+console.log(res);
+```
+
+Or load it in CommonJS module.
+
+```javascript
 const md = require('markdown-it')();
 const implicitFigures = require('markdown-it-implicit-figures');
 
